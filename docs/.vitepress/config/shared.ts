@@ -4,11 +4,6 @@ import {
   groupIconVitePlugin,
   localIconLoader
 } from 'vitepress-plugin-group-icons'
-import { search as esSearch } from './es'
-import { search as faSearch } from './fa'
-import { search as koSearch } from './ko'
-import { search as ptSearch } from './pt'
-import { search as ruSearch } from './ru'
 import { search as zhSearch } from './zh'
 
 export const shared = defineConfig({
@@ -39,20 +34,10 @@ export const shared = defineConfig({
         const { localeIndex = 'root' } = env
         const codeCopyButtonTitle = (() => {
           switch (localeIndex) {
-            case 'es':
-              return 'Copiar código'
-            case 'fa':
-              return 'کپی کد'
-            case 'ko':
-              return '코드 복사'
-            case 'pt':
-              return 'Copiar código'
-            case 'ru':
-              return 'Скопировать код'
             case 'zh':
               return '复制代码'
             default:
-              return 'Copy code'
+              return '复制代码'
           }
         })()
         return fence(tokens, idx, options, env, self).replace(
@@ -100,11 +85,6 @@ export const shared = defineConfig({
         indexName: 'vitepress',
         locales: {
           ...zhSearch,
-          ...ptSearch,
-          ...ruSearch,
-          ...esSearch,
-          ...koSearch,
-          ...faSearch
         }
       }
     },
